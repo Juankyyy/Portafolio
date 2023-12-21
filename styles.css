@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55?styles=15981,15994');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #222;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.background {
+    background-image: url(./assets/background.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+    align-items: center;
+    color: #fff;
+    box-shadow: 0px 10px 50px #000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 60px;
+    width: min-content;
+}
+
+.outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+    letter-spacing: 1px;
+}
+
+#proyectos {
+    cursor: pointer;
+}
+
+.cardx {
+    background-color: initial !important;
+    backdrop-filter: blur(1px);
+    color: #fff;
+    box-shadow: 0px 1px 10px #000;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.cardx:hover {
+    color: #00b7ff;
+}
+
+.cardx img {
+    transition: all 0.3s;
+    border-radius: 9px;
+}
+
+.cardx:hover img {
+    transform: scale(1.2);
+}
