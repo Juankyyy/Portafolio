@@ -18,6 +18,18 @@ a {
     font-weight: bold;
 }
 
+h3 {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 1.17em;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
 .background {
     background-image: url(./assets/background.jpeg);
     background-position: center;
@@ -60,9 +72,18 @@ a {
     cursor: pointer;
 }
 
+.projects {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 100dvw;
+    position: absolute;
+    bottom: 0px;
+}
+
 .cardx {
     background-color: initial !important;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(5px);
     color: #fff;
     box-shadow: 0px 1px 10px #000;
     overflow: hidden;
