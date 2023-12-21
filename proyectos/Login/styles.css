@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+body {
+    background-color: #222;
+    color: #fff;
+}
+
+form {
+    width: 500px;
+    background-color: #444;
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    transition: all 0.5s;
+}
+
+form:hover {
+    box-shadow: 0px 8px 20px #000;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.form-floating label {
+    color: #000;
+}
+
+#btn-login {
+    border: none;
+    outline: none;
+    background-color: #6c5ce7;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.1s;
+    box-shadow: 0px 5px 0px 0px #a29bfe;
+}
+
+#btn-login:hover {
+    background-color: #4b34ff;
+}
+
+#btn-login:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+
+.usuarioNo {
+    margin-bottom: 0px;
+    background-color: #ff3441;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+.usuarioNo p {
+    padding: 5px;
+}
