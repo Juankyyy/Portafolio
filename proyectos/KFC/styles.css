@@ -82,3 +82,22 @@ body {
 .theme-blue .form-select:hover {
     box-shadow: 0px 1px 10px #033FA0;
 }
+
+.footerContent {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+}
+
+.footer {
+    font-weight: bold;
+    font-size: 15px;
+    color: #afa89b;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.footer:hover {
+    color: #7282ff;
+}
