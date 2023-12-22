@@ -164,3 +164,31 @@ h3 {
 .back-text:hover {
     transform: scale(1.2);
 }
+
+@media (max-width: 500px) {
+    .cards {
+        width: 100px;
+    }
+
+    .cards-img {
+        height: 50px;
+    }
+
+    .cards-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 350px) {
+    .name {
+        font-size: 35px;
+    }
+
+    #proyectos {
+        font-size: 15px;
+    }
+
+    .projects {
+        gap: 20px;
+    }
+}
