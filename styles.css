@@ -15,6 +15,7 @@ html {
 body {
     background-color: #222;
     color: #fff;
+    overflow: hidden;
 }
 
 a {
@@ -42,7 +43,7 @@ h3 {
     background-size: cover;
     height: 100dvh;
     color: #fff;
-    box-shadow: 0px 10px 50px #000;
+    /* box-shadow: 0px 10px 50px #000; */
 
     display: grid;
     place-content: center;
@@ -131,4 +132,35 @@ h3 {
 .cards-text {
     margin-bottom: 0px;
     margin-top: 10px;
+}
+
+@keyframes upDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.back {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-arrow {
+    animation: upDown 2s ease-in-out infinite;
+}
+
+.back-text {
+    transition: all 0.3s;
+}
+
+.back-text:hover {
+    transform: scale(1.2);
 }
