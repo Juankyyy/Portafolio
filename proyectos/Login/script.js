@@ -12,17 +12,26 @@ persons = [
     {
         username: "Wilmar",
         email: "wilmar@gmail.com",
-        password: "111"
+        password: "111",
+        gender: "Masculino"
     },
     {
         username: "Santi",
         email: "santi@gmail.com",
-        password: "222"
+        password: "222",
+        gender: "Masculino"
     },
     {
         username: "Juanky",
         email: "juanky@gmail.com",
-        password: "333"
+        password: "333",
+        gender: "Masculino"
+    },
+    {
+        username: "Mariana",
+        email: "mariana@gmail.com",
+        password: "444",
+        gender: "Femenino"
     }
 ];
 
@@ -32,7 +41,8 @@ btnLogin.addEventListener("click", (event) => {
     persons.forEach((person) => {
         if (email.value == person.email && password.value == person.password) {
             usuarioCorrecto = true;
-            sessionStorage.setItem("userName", person.username)
+            sessionStorage.setItem("userName", person.username);
+            sessionStorage.setItem("gender", person.gender);
             location.href = "./home.html"
         } 
     });
