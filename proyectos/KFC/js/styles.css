@@ -1,3 +1,30 @@
+.theme-blue {
+    background-color: #011638;
+    color: #fff;
+}
+
+.theme-blue .card {
+    background-color: #364156;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.theme-blue .card:hover {
+    box-shadow: 0px 1px 15px #033FA0;
+}
+
+.theme-blue .form-select {
+    background-color: #364156;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.theme-blue .form-select:hover {
+    box-shadow: 0px 1px 10px #033FA0;
+}
+
 .footerContent {
     position: fixed;
     bottom: 0px;
