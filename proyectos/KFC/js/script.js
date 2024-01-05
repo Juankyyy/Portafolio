@@ -42,3 +42,29 @@ for (let i = 0; i < 2; i++) {
         cardBody.append(titlePrice, titleName, p, btn);
     }
 }
+
+// Footer
+const footer = document.createElement("div");
+footer.className = "mt-5 p-4 text-light bg-danger";
+root.appendChild(footer);
+
+const footerContainer = document.createElement("div");
+footerContainer.classList.add("container");
+footer.appendChild(footerContainer);
+
+const footerRow = document.createElement("div");
+footerRow.classList.add("row");
+footerContainer.appendChild(footerRow);
+
+const footerCol = document.createElement("div");
+footerCol.className = "col-md-12 text-center";
+footerRow.appendChild(footerCol);
+
+const footerTitle = document.createElement("h5");
+footerTitle.textContent = "Hambre de promos - KFC";
+
+const footerP = document.createElement("p");
+footerP.classList.add("mb-0");
+footerP.textContent = "Disfruta de nuestro delicioso pollo frito, popcorn, alitas picantes, sándwiches originales, postres, y más. Conoce aquí nuestro menú KFC.";
+
+footerCol.append(footerTitle, footerP);
