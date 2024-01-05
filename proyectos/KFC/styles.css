@@ -83,6 +83,25 @@ body {
     box-shadow: 0px 1px 10px #033FA0;
 }
 
+.headerContent {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 15px;
+    color: #afa89b;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.header:hover {
+    color: #7282ff;
+}
+
 .footerContent {
     position: fixed;
     bottom: 0px;
