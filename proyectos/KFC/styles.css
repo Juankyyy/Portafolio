@@ -84,11 +84,10 @@ body {
 }
 
 .headerContent {
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 0px;
     padding: 10px;
-    z-index: 1;
 }
 
 .header {
