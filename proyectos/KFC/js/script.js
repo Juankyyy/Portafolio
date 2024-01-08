@@ -110,20 +110,20 @@ for (let i = 0; i < 2; i++) {
 }
 
 // --- --- --- Footer --- --- ---
-const footer = document.createElement("div");
-footer.className = "mt-5 p-4 text-light bg-danger";
-root.appendChild(footer);
+const footerx = document.createElement("div");
+footerx.className = "mt-5 p-4 text-light bg-danger";
+root.appendChild(footerx);
 
 const footerContainer = document.createElement("div");
 footerContainer.classList.add("container");
-footer.appendChild(footerContainer);
+footerx.appendChild(footerContainer);
 
 const footerRow = document.createElement("div");
 footerRow.classList.add("row");
 footerContainer.appendChild(footerRow);
 
 const footerCol = document.createElement("div");
-footerCol.className = "col-md-12 text-center";
+footerCol.className = "col-md-12 text-center footer-text";
 footerRow.appendChild(footerCol);
 
 const footerTitle = document.createElement("h5");
