@@ -103,3 +103,27 @@ function asignarIdioma() {
         });
     }
 }
+
+asignarSelected();
+function asignarSelected() {
+    // -- Language --
+    if (localStorage.getItem("language") == "en") {
+        languageSelect[0].removeAttribute("selected");
+        languageSelect[1].setAttribute("selected", "")
+    } else if (localStorage.getItem("language") == "es") {
+        languageSelect[0].removeAttribute("selected");
+        languageSelect[2].setAttribute("selected", "")
+    }
+
+    // -- Theme --
+    if (localStorage.getItem("theme") == "light") {
+        themeSelect[0].removeAttribute("selected");
+        themeSelect[1].setAttribute("selected", "")
+    } else if (localStorage.getItem("theme") == "dark") {
+        themeSelect[0].removeAttribute("selected");
+        themeSelect[2].setAttribute("selected", "")
+    }  else if (localStorage.getItem("theme") == "blue") {
+        themeSelect[0].removeAttribute("selected");
+        themeSelect[3].setAttribute("selected", "")
+    }
+}
