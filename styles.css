@@ -98,7 +98,6 @@ h3 {
     z-index: -1;
     object-fit: cover;
     overflow: visible;
-    /* margin-top: 20vh; */
 }
 
 .projects {
@@ -172,6 +171,7 @@ h3 {
     gap: 10px;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s;
 }
 
 .back-arrow {
@@ -180,16 +180,11 @@ h3 {
     fill: #000;
     padding: 3px;
     border-radius: 50%;
-    /* mix-blend-mode: difference; */
-}
-
-.back-text {
-    mix-blend-mode: difference;
     transition: all 0.3s;
 }
 
-.back-text:hover {
-    transform: scale(1.2);
+.back:hover .back-arrow {
+    background-color: #b9b9b9;
 }
 
 /* --- --- --- --- RESPONSIVE --- --- --- --- */
