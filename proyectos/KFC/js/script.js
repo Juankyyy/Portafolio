@@ -70,6 +70,10 @@ const container = document.createElement("div");
 container.classList.add("container");
 root.appendChild(container);
 
+const imgs = [["../images/hamburguesa-1.webp", "../images/hamburguesa-2.webp", "../images/hamburguesa-3.webp", "../images/hamburguesa-4.webp"], ["../images/hamburguesa-5.webp", "../images/hamburguesa-6.webp", "../images/hamburguesa-7.webp", "../images/hamburguesa-8.webp"]];
+const price = [["$ 8.900", "$ 15.900", "$ 15.900", "$ 16.900"], ["$ 21.900", "$ 22.900", "$ 23.900", "$ 29.900"]]
+const title = [["BBQ Crunch", "Kentucky Sandwich", "Combo BBQ Crunch", "Kentucky Coronel Sandwich"], ["Combo Kentucky Sandwich", "Combo Kentucky Coronel Sandwich", "Sandwich Crispy BBQ", "Combo Sandwich Crispy BBQ"]]
+
 for (let i = 0; i < 2; i++) {
     const row = document.createElement("div");
     row.classList.add("row");
@@ -85,7 +89,7 @@ for (let i = 0; i < 2; i++) {
         col.appendChild(card);
         
         const img = document.createElement("img");
-        img.src = "../images/hamburguesa-1.webp";
+        img.src = imgs[i][j];
         card.appendChild(img);
         
         const cardBody = document.createElement("div");
@@ -93,13 +97,12 @@ for (let i = 0; i < 2; i++) {
         card.appendChild(cardBody);
         
         const titlePrice = document.createElement("h5");
-        titlePrice.textContent = "$ 8.900";
+        titlePrice.textContent = price[i][j];
         
         const titleName = document.createElement("h5");
-        titleName.textContent = "BBQ Crunch";
+        titleName.textContent = title[i][j];
         
         const p = document.createElement("p");
-        p.textContent = "1 Sandwich BBQ Crunch (1 filete de pollo apanado)";
         
         const btn = document.createElement("button");
         btn.className = "btn btn-danger w-100 mt-auto";
