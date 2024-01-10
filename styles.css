@@ -108,6 +108,7 @@ h3 {
     height: 100dvh;
     width: 100dvw;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 .card:hover img {
@@ -218,6 +219,7 @@ h3 {
     }
 
     .projects {
-        gap: 20px;
+        /* gap: 20px; */
+        gap: 0px;
     }
 }
