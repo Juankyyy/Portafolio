@@ -11,3 +11,7 @@ table {
     border-radius: 10px;
     overflow: hidden;
 }
+
+.table-responsive {
+    height: 95dvh;
+}
