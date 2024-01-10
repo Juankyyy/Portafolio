@@ -111,6 +111,14 @@ h3 {
     flex-wrap: wrap;
 }
 
+.projects-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .card:hover img {
     transform: scale(1.2);
 }
