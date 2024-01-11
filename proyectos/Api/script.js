@@ -105,15 +105,15 @@ const resultado = fetch("https://memin.io/public/api/users")
 
             eliminar.addEventListener("click", () => {
                 const info = (eliminar.parentElement).parentElement;
-                const id = info.children[0];
-                let deleteFetch = fetch(`https://memin.io/public/api/users/${id.innerText}`, {
+                const id = info.children[0].innerText;
+                let deleteFetch = fetch(`https://memin.io/public/api/users/${id}`, {
                     method: "DELETE"
                 })
-                    .then(alert("Se ha eliminado correctamente"));
+                    .then(alert(`Se ha eliminado el id ${id} correctamente`));
             })
         })
+        loading.parentNode.removeChild(loading);
     })
-    // .then(loading.parentNode.removeChild(loading), console.log("a"))
     .catch((error) => {
         console.error("Error: ", error);
     });
