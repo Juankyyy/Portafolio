@@ -2,8 +2,27 @@ body {
     background-color: #222;
 }
 
-.card {
-    background-color: #333;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #444;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0dcaf0;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #0098b6;
 }
 
 table {
@@ -12,6 +31,22 @@ table {
     overflow: hidden;
 }
 
+.card {
+    background-color: #333;
+}
+
 .table-responsive {
     height: 95dvh;
+}
+
+td a {
+    text-decoration: none;
+    color: #000;
+    background-color: #0dcaf0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.container {
+    margin: 0px;
 }
