@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap');
+
 body {
     background-color: #222;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
+    height: 8px;
 }
 
 /* Track */
@@ -63,6 +66,6 @@ td a {
 
 @media (max-width: 770px) {
     .table-responsive {
-        height: 67dvh;
+        height: 65dvh;
     }
 }

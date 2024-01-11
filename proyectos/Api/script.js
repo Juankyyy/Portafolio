@@ -110,10 +110,7 @@ const resultado = fetch("https://memin.io/public/api/users")
                     method: "DELETE"
                 })
                     .then(alert(`Se ha eliminado el id ${id} correctamente`));
-            })
-        })
+            });
+        });
         loading.parentNode.removeChild(loading);
-    })
-    .catch((error) => {
-        console.error("Error: ", error);
     });
