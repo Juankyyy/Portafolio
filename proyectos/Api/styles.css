@@ -63,6 +63,6 @@ td a {
 
 @media (max-width: 770px) {
     .table-responsive {
-        height: 67vh;
+        height: 67dvh;
     }
 }
