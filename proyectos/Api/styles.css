@@ -1,35 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap');
 
-body {
-    background-color: #222;
-    font-family: 'Nunito Sans', sans-serif;
-}
-
-/* width */
 ::-webkit-scrollbar {
     width: 10px;
     height: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background-color: #444;
     border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #0dcaf0;
     border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #0098b6;
 }
 
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+body {
+    background-color: #222;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
 table {
     text-align: center;
+    vertical-align: middle !important;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -47,8 +49,40 @@ td a {
     text-decoration: none;
     color: #000;
     background-color: #0dcaf0;
-    padding: 5px;
+    padding: 5px 7px;
     border-radius: 5px;
+    transition: all 0.3s;
+}
+
+td a:hover {
+    background-color: #0077ff;
+}
+
+#editar {
+    background-color: #328dc9;
+    color: #fff;
+}
+
+#editar:hover {
+    background-color: #206796;
+}
+
+#detalles {
+    background-color: #1cad48;
+    color: #fff;
+}
+
+#detalles:hover {
+    background-color: #0d7c2e;
+}
+
+#eliminar {
+    background-color: #c93232;
+    color: #fff;
+}
+
+#eliminar:hover {
+    background-color: #ac2626;
 }
 
 /* .container {

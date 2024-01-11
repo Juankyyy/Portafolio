@@ -75,6 +75,7 @@ const resultado = fetch("https://memin.io/public/api/users")
             // -- Editar --
             const editar = document.createElement("a");
             editar.setAttribute("href", "#");
+            editar.id = "editar";
             editar.innerText = 'Editar';
             acciones.appendChild(editar);
 
@@ -93,13 +94,15 @@ const resultado = fetch("https://memin.io/public/api/users")
             // -- Detalles --
             const detalles = document.createElement("a");
             detalles.setAttribute("href", "#");
-            detalles.textContent = 'Detalles';
+            detalles.id = "detalles";
             detalles.classList.add('m-2')
+            detalles.textContent = 'Detalles';
             acciones.appendChild(detalles);
 
             // -- Eliminar --
             const eliminar = document.createElement("a");
             eliminar.setAttribute("href", "#");
+            eliminar.id = "eliminar";
             eliminar.textContent = 'Eliminar';
             acciones.appendChild(eliminar);
 
