@@ -1,3 +1,52 @@
+const inputName = document.getElementById('name');
+const inputEmail = document.getElementById('email');
+const submit = document.querySelector("#submit");
+const loading = document.querySelector("#loading");
+
+submit.addEventListener("click", () => {
+    const id = sessionStorage.getItem('id')
+    
+    let datos = {
+        id: parseInt(id),
+        name: inputName.value,
+        email: inputEmail.value
+    }
+    console.log(JSON.stringify(datos));
+    
+    if (inputName.value != "" & inputEmail.value != "") {
+        if (id) {
+            let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
+                method: "PUT",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(datos)
+            })
+                .then(alert(`El id ${id} se ha actualizado correctamente`))
+                .catch((error) => {
+                    console.error("Error: ", error);
+                });
+    
+        } else {
+            datos = {
+                name: inputName.value,
+                email: inputEmail.value
+            }
+    
+            let sendCreateFetch = fetch("https://memin.io/public/api/users", {
+                method: "POST",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(datos)
+            })
+                .then(alert(`El usuario ${inputName.value} se creó correctamente`))
+                .catch((error) => {
+                    console.error("Error: ", error);
+                });
+        }
+    } else {
+        alert("Los inputs están vacíos")
+    }
+    sessionStorage.clear();
+});
+
 const resultado = fetch("https://memin.io/public/api/users")
     .then((response) => {
         return response.json();
