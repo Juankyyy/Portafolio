@@ -3,6 +3,7 @@ const inputEmail = document.getElementById('email');
 const submit = document.querySelector("#submit");
 const loading = document.querySelector("#loading");
 const closeModal = document.querySelector(".btn-close");
+const search = document.querySelector("#search")
 
 submit.addEventListener("click", () => {
     const id = sessionStorage.getItem('id');
@@ -12,7 +13,6 @@ submit.addEventListener("click", () => {
         name: inputName.value,
         email: inputEmail.value
     };
-    console.log(JSON.stringify(datos));
 
     if (inputName.value != "" & inputEmail.value != "") {
         if (id) {
@@ -144,4 +144,8 @@ closeModal.addEventListener("click", () => {
         }
     }
     body.innerHTML = `<div class="spinner-border text-warning loadingModal" role="status" id="loading"></div>`
+})
+
+search.addEventListener("change", () => {
+    console.log(search.value);
 })
