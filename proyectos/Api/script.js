@@ -115,23 +115,25 @@ submit.addEventListener("click", () => {
         email: inputEmail.value
     };
 
-    if (inputName.value != "" & inputEmail.value != "") {
+    if (inputName.value != "" && inputEmail.value != "") {
         if (id) {
             let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
                 method: "PUT",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(datos)
             })
-                .then(alert(`El id ${id} se ha actualizado correctamente`));
+                .then(
+                    alert(`El id ${id} se ha actualizado correctamente`),
+                    inputName.value = "",
+                    inputEmail.value = ""
+                );
 
         } else {
-            alert(`El usuario ${inputName.value} no tiene id por ende no existe, intenta crearlo`)
+            alert(`El usuario no tiene id por ende no existe, intenta crearlo`)
         }
     } else {
-        alert("Los inputs están vacíos")
+        alert("Completa todos los inputs")
     };
-    inputName.value = "";
-    inputEmail.value = "";
     sessionStorage.clear();
 });
 
@@ -145,20 +147,31 @@ closeModal.addEventListener("click", () => {
     body.innerHTML = `<div class="spinner-border text-warning loadingModal" role="status" id="loading"></div>`
 })
 
-submitModal.addEventListener("click", () => {
+submitModal.addEventListener("click", (e) => {
+    e.preventDefault();
+
     datos = {
         name: inputNameModal.value,
         email: inputEmailModal.value,
         password: inputPasswordModal.value
     }
-
-    const sendCreateFetch = fetch("https://memin.io/public/api/users", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(datos)
-    })
-        .then(alert(`El usuario ${inputNameModal.value} se creó correctamente`));
+    if (inputNameModal.value != "" && inputEmailModal.value != "" && inputPasswordModal.value != "") {
+        const sendCreateFetch = fetch("https://memin.io/public/api/users", {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(datos)
+        })
+            .then(
+                alert(`El usuario ${inputNameModal.value} se creó correctamente`),
+                inputNameModal.value = "",
+                inputEmailModal.value = "",
+                inputPasswordModal.value = ""
+            );
+    } else {
+        alert("Completa todos los inputs");
+    }
 })
+
 
 search.addEventListener("change", () => {
     console.log(search.value);
