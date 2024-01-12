@@ -118,7 +118,7 @@ td a {
 
 @media (max-width: 770px) {
     .table-responsive {
-        height: 58dvh;
+        height: 55dvh;
         overflow-x: auto;
     }
 
