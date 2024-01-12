@@ -1,49 +1,9 @@
-const inputName = document.getElementById('name');
-const inputEmail = document.getElementById('email');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
 const submit = document.querySelector("#submit");
 const loading = document.querySelector("#loading");
 const closeModal = document.querySelector(".btn-close");
 const search = document.querySelector("#search")
-
-submit.addEventListener("click", () => {
-    const id = sessionStorage.getItem('id');
-
-    let datos = {
-        id: parseInt(id),
-        name: inputName.value,
-        email: inputEmail.value
-    };
-
-    if (inputName.value != "" & inputEmail.value != "") {
-        if (id) {
-            let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
-                method: "PUT",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(datos)
-            })
-                .then(alert(`El id ${id} se ha actualizado correctamente`));
-
-        } else {
-            datos = {
-                name: inputName.value,
-                email: inputEmail.value
-            }
-
-            let sendCreateFetch = fetch("https://memin.io/public/api/users", {
-                method: "POST",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(datos)
-            })
-                .then(alert(`El usuario ${inputName.value} se creó correctamente`))
-                .catch((error) => {
-                    console.error("Error: ", error);
-                });
-        }
-    } else {
-        alert("Los inputs están vacíos")
-    }
-    sessionStorage.clear();
-});
 
 const resultado = fetch("https://memin.io/public/api/users")
     .then((response) => {
@@ -127,14 +87,47 @@ const resultado = fetch("https://memin.io/public/api/users")
             eliminar.addEventListener("click", () => {
                 const info = (eliminar.parentElement).parentElement;
                 const id = info.children[0].innerText;
-                let deleteFetch = fetch(`https://memin.io/public/api/users/${id}`, {
+                const deleteFetch = fetch(`https://memin.io/public/api/users/${id}`, {
                     method: "DELETE"
                 })
-                    .then(alert(`Se ha eliminado el id ${id} correctamente`));
+                    .then(
+                        alert(`Se ha eliminado el id ${id} correctamente`),
+                        info.parentNode.removeChild(info)
+                    );
             });
         });
         loading.parentNode.removeChild(loading);
     });
+
+
+submit.addEventListener("click", () => {
+    const id = sessionStorage.getItem('id');
+
+    let datos = {
+        id: parseInt(id),
+        name: inputName.value,
+        email: inputEmail.value
+    };
+
+    if (inputName.value != "" & inputEmail.value != "") {
+        if (id) {
+            let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
+                method: "PUT",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(datos)
+            })
+                .then(alert(`El id ${id} se ha actualizado correctamente`));
+
+        } else {
+            alert(`El usuario ${inputName.value} no tiene id por ende no existe, intenta crearlo`)
+        }
+    } else {
+        alert("Los inputs están vacíos")
+    };
+    inputName.value = "";
+    inputEmail.value = "";
+    sessionStorage.clear();
+});
 
 closeModal.addEventListener("click", () => {
     const body = document.querySelector("#modalText");
