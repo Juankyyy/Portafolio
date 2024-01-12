@@ -68,7 +68,37 @@
                     <h1 class="modal-title fs-5">Información del usuario</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="modalText"><div class="spinner-border text-warning loadingModal" role="status" id="loading"></div></div>
+                <div class="modal-body" id="modalText">
+                    <div class="spinner-border text-warning loadingModal" role="status" id="loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalNew" tabindex="-1" aria-labelledby="modalInputs" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Crear Nuevo Usuario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalInputs">
+                    <form class="ms-5 me-5">
+                        <div class="mb-3">
+                            <label for="nameModal" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nameModal">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailModal" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailModal">
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordModal" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="passwordModal">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100" id="submitModal" data-bs-dismiss="modal">Crear</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
