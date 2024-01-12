@@ -81,8 +81,8 @@ const resultado = fetch("https://memin.io/public/api/users")
 
             editar.addEventListener("click", () =>{
                 const info = (editar.parentElement).parentElement;
-                const id = info.children[0];
-                sessionStorage.setItem("id", id.innerText);
+                const id = info.children[0].innerText;
+                sessionStorage.setItem("id", id);
         
                 const name = info.children[1];
                 const email = info.children[2];
@@ -94,10 +94,38 @@ const resultado = fetch("https://memin.io/public/api/users")
             // -- Detalles --
             const detalles = document.createElement("a");
             detalles.setAttribute("href", "#");
+            detalles.setAttribute("data-bs-toggle", "modal");
+            detalles.setAttribute("data-bs-target", "#modalCard");
             detalles.id = "detalles";
             detalles.classList.add('m-2')
             detalles.textContent = 'Detalles';
             acciones.appendChild(detalles);
+
+            detalles.addEventListener("click", () => {
+                const info = (editar.parentElement).parentElement;
+                const id = info.children[0].innerText;
+                
+                
+                const title = document.querySelector("#modalTitle");
+                const body = document.querySelector("#modalText");
+                title.textContent = "Información del usuario";
+                if (body.childElementCount != 0) {
+                    while (body.firstChild) {
+                        body.removeChild(body.firstChild);
+                      }
+                }
+                const modalFetch = fetch(`https://memin.io/public/api/users/${id}`, {
+                    method: "GET"
+                }).then((response) => {
+                    return response.json()
+                }).then((data) => {
+                    for(datos in data) {
+                        const p = document.createElement("p");
+                        p.textContent = `${datos}: ${data[datos]}`;
+                        body.appendChild(p);
+                    }
+                })
+            })
 
             // -- Eliminar --
             const eliminar = document.createElement("a");

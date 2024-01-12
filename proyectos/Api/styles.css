@@ -98,6 +98,10 @@ td a:hover {
     margin: auto;
 }
 
+.modal-body {
+    position: relative;
+}
+
 @media (max-width: 770px) {
     .table-responsive {
         height: 65dvh;
