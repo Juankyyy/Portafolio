@@ -2,38 +2,36 @@ const inputName = document.getElementById('name');
 const inputEmail = document.getElementById('email');
 const submit = document.querySelector("#submit");
 const loading = document.querySelector("#loading");
+const closeModal = document.querySelector(".btn-close");
 
 submit.addEventListener("click", () => {
-    const id = sessionStorage.getItem('id')
-    
+    const id = sessionStorage.getItem('id');
+
     let datos = {
         id: parseInt(id),
         name: inputName.value,
         email: inputEmail.value
-    }
+    };
     console.log(JSON.stringify(datos));
-    
+
     if (inputName.value != "" & inputEmail.value != "") {
         if (id) {
             let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
                 method: "PUT",
-                headers: {"Content-type": "application/json"},
+                headers: { "Content-type": "application/json" },
                 body: JSON.stringify(datos)
             })
-                .then(alert(`El id ${id} se ha actualizado correctamente`))
-                .catch((error) => {
-                    console.error("Error: ", error);
-                });
-    
+                .then(alert(`El id ${id} se ha actualizado correctamente`));
+
         } else {
             datos = {
                 name: inputName.value,
                 email: inputEmail.value
             }
-    
+
             let sendCreateFetch = fetch("https://memin.io/public/api/users", {
                 method: "POST",
-                headers: {"Content-type": "application/json"},
+                headers: { "Content-type": "application/json" },
                 body: JSON.stringify(datos)
             })
                 .then(alert(`El usuario ${inputName.value} se creó correctamente`))
@@ -79,15 +77,15 @@ const resultado = fetch("https://memin.io/public/api/users")
             editar.innerText = 'Editar';
             acciones.appendChild(editar);
 
-            editar.addEventListener("click", () =>{
+            editar.addEventListener("click", () => {
                 const info = (editar.parentElement).parentElement;
                 const id = info.children[0].innerText;
                 sessionStorage.setItem("id", id);
-        
+
                 const name = info.children[1];
                 const email = info.children[2];
-        
-                inputName.value =name.innerText;
+
+                inputName.value = name.innerText;
                 inputEmail.value = email.innerText;
             })
 
@@ -102,28 +100,20 @@ const resultado = fetch("https://memin.io/public/api/users")
             acciones.appendChild(detalles);
 
             detalles.addEventListener("click", () => {
-                const info = (editar.parentElement).parentElement;
-                const id = info.children[0].innerText;
-                
-                
-                const title = document.querySelector("#modalTitle");
                 const body = document.querySelector("#modalText");
-                title.textContent = "Información del usuario";
-                if (body.childElementCount != 0) {
-                    while (body.firstChild) {
-                        body.removeChild(body.firstChild);
-                      }
-                }
-                const modalFetch = fetch(`https://memin.io/public/api/users/${id}`, {
+
+                const modalFetch = fetch(`https://memin.io/public/api/users/${element.id}`, {
                     method: "GET"
                 }).then((response) => {
                     return response.json()
                 }).then((data) => {
-                    for(datos in data) {
+                    for (datos in data) {
                         const p = document.createElement("p");
                         p.textContent = `${datos}: ${data[datos]}`;
                         body.appendChild(p);
                     }
+                    const loadingModal = document.querySelector(".loadingModal");
+                    loadingModal.parentNode.removeChild(loadingModal);
                 })
             })
 
@@ -145,3 +135,13 @@ const resultado = fetch("https://memin.io/public/api/users")
         });
         loading.parentNode.removeChild(loading);
     });
+
+closeModal.addEventListener("click", () => {
+    const body = document.querySelector("#modalText");
+    if (body.childElementCount != 0) {
+        while (body.firstChild) {
+            body.removeChild(body.firstChild);
+        }
+    }
+    body.innerHTML = `<div class="spinner-border text-warning loadingModal" role="status" id="loading"></div>`
+})

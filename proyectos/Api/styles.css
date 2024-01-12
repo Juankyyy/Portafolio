@@ -43,19 +43,14 @@ table {
 .table-responsive {
     height: 95dvh;
     position: relative;
+    overflow-x: hidden;
 }
 
 td a {
     text-decoration: none;
-    color: #000;
-    background-color: #0dcaf0;
     padding: 5px 7px;
     border-radius: 5px;
     transition: all 0.3s;
-}
-
-td a:hover {
-    background-color: #0077ff;
 }
 
 #editar {
@@ -85,10 +80,6 @@ td a:hover {
     background-color: #ac2626;
 }
 
-/* .container {
-    margin: 0px;
-} */
-
 #loading {
     position: absolute;
     top: 0;
@@ -99,11 +90,30 @@ td a:hover {
 }
 
 .modal-body {
-    position: relative;
+    min-height: 376px;
+    max-height: max-content;
+}
+
+.modal-dialog {
+    width: max-content;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: unset;
+    }
 }
 
 @media (max-width: 770px) {
     .table-responsive {
         height: 65dvh;
+        overflow-x: auto;;
+    }
+
+    .modal-dialog {
+        width: 90dvw;
+    }
+    .modal-dialog .modal-body {
+        overflow: auto;
     }
 }
