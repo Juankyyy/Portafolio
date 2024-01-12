@@ -1,6 +1,12 @@
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const submit = document.querySelector("#submit");
+
+const submitModal = document.querySelector("#submitModal");
+const inputNameModal = document.querySelector('#nameModal');
+const inputEmailModal = document.querySelector('#emailModal');
+const inputPasswordModal = document.querySelector('#passwordModal');
+
 const loading = document.querySelector("#loading");
 const closeModal = document.querySelector(".btn-close");
 const search = document.querySelector("#search")
@@ -137,6 +143,21 @@ closeModal.addEventListener("click", () => {
         }
     }
     body.innerHTML = `<div class="spinner-border text-warning loadingModal" role="status" id="loading"></div>`
+})
+
+submitModal.addEventListener("click", () => {
+    datos = {
+        name: inputNameModal.value,
+        email: inputEmailModal.value,
+        password: inputPasswordModal.value
+    }
+
+    const sendCreateFetch = fetch("https://memin.io/public/api/users", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(datos)
+    })
+        .then(alert(`El usuario ${inputNameModal.value} se creó correctamente`));
 })
 
 search.addEventListener("change", () => {
