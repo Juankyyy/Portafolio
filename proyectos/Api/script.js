@@ -176,12 +176,10 @@ submitModal.addEventListener("click", (e) => {
 
 
 search.addEventListener("keyup", () => {
-    console.log(search.value);
     for (tr of tbody.childNodes) {
-        const name = (tr.children[1].textContent);
-        if (name.includes(search.value)) {
-            console.log(tr);
-            tr.style = "display: block;";
+        const name = tr.children[1].textContent.toLowerCase();
+        if (name.includes(search.value.toLowerCase())) {
+            tr.style = "display: table-row;"
         } else {
             tr.style = "display: none;"
         }
