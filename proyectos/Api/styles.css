@@ -53,30 +53,30 @@ td a {
     transition: all 0.3s;
 }
 
-#editar {
+.editar {
     background-color: #328dc9;
     color: #fff;
 }
 
-#editar:hover {
+.editar:hover {
     background-color: #206796;
 }
 
-#detalles {
+.detalles {
     background-color: #1cad48;
     color: #fff;
 }
 
-#detalles:hover {
+.detalles:hover {
     background-color: #0d7c2e;
 }
 
-#eliminar {
+.eliminar {
     background-color: #c93232;
     color: #fff;
 }
 
-#eliminar:hover {
+.eliminar:hover {
     background-color: #ac2626;
 }
 

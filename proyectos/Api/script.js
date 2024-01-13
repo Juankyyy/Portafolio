@@ -40,7 +40,7 @@ const resultado = fetch("https://memin.io/public/api/users")
             // -- Editar --
             const editar = document.createElement("a");
             editar.setAttribute("href", "#");
-            editar.id = "editar";
+            editar.classList.add("editar")
             editar.innerText = 'Editar';
             acciones.appendChild(editar);
 
@@ -49,11 +49,12 @@ const resultado = fetch("https://memin.io/public/api/users")
                 const id = info.children[0].innerText;
                 sessionStorage.setItem("id", id);
 
-                const name = info.children[1];
-                const email = info.children[2];
+                const name = info.children[1].innerText;
+                const email = info.children[2].innerText;
 
-                inputName.value = name.innerText;
-                inputEmail.value = email.innerText;
+                inputName.value = name;
+                inputEmail.value = email;
+                actualizarLocal(editar)
             })
 
             // -- Detalles --
@@ -61,8 +62,7 @@ const resultado = fetch("https://memin.io/public/api/users")
             detalles.setAttribute("href", "#");
             detalles.setAttribute("data-bs-toggle", "modal");
             detalles.setAttribute("data-bs-target", "#modalCard");
-            detalles.id = "detalles";
-            detalles.classList.add('m-2')
+            detalles.className = "m-2 detalles";
             detalles.textContent = 'Detalles';
             acciones.appendChild(detalles);
 
@@ -87,13 +87,12 @@ const resultado = fetch("https://memin.io/public/api/users")
             // -- Eliminar --
             const eliminar = document.createElement("a");
             eliminar.setAttribute("href", "#");
-            eliminar.id = "eliminar";
+            eliminar.classList.add("eliminar")
             eliminar.textContent = 'Eliminar';
             acciones.appendChild(eliminar);
 
             eliminar.addEventListener("click", () => {
                 const info = (eliminar.parentElement).parentElement;
-                console.log(info);
                 const id = info.children[0].innerText;
                 const deleteFetch = fetch(`https://memin.io/public/api/users/${id}`, {
                     method: "DELETE"
@@ -107,6 +106,22 @@ const resultado = fetch("https://memin.io/public/api/users")
         loading.parentNode.removeChild(loading);
     });
 
+function actualizarLocal(elemento) {
+    const id = sessionStorage.getItem('id');
+    const info = (elemento.parentElement).parentElement
+
+    submit.addEventListener("click", () => {
+        if (inputName.value != "" && inputEmail.value != "") {    
+            if (id) {
+                info.children[1].innerText = inputName.value;
+                info.children[2].innerText = inputEmail.value;
+                inputName.value = "";
+                inputEmail.value = "";
+                sessionStorage.clear();
+            }
+        }
+    })
+}
 
 submit.addEventListener("click", () => {
     const id = sessionStorage.getItem('id');
@@ -126,17 +141,13 @@ submit.addEventListener("click", () => {
             })
                 .then(
                     alert(`El id ${id} se ha actualizado correctamente`),
-                    inputName.value = "",
-                    inputEmail.value = ""
                 );
-
         } else {
-            alert(`El usuario no tiene id por ende no existe, intenta crearlo`)
+            alert(`El usuario que intentas editar no existe, intenta crearlo`);
         }
     } else {
-        alert("Completa todos los inputs")
+        alert("Completa todos los inputs");
     };
-    sessionStorage.clear();
 });
 
 closeModal.addEventListener("click", () => {
