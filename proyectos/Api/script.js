@@ -1,3 +1,5 @@
+const tbody = document.querySelector("tbody");
+
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const submit = document.querySelector("#submit");
@@ -17,7 +19,6 @@ const resultado = fetch("https://memin.io/public/api/users")
     })
     .then((data) => {
         data.forEach((element) => {
-            const tbody = document.querySelector("tbody");
             const tr = document.createElement("tr");
             tbody.appendChild(tr);
 
@@ -92,6 +93,7 @@ const resultado = fetch("https://memin.io/public/api/users")
 
             eliminar.addEventListener("click", () => {
                 const info = (eliminar.parentElement).parentElement;
+                console.log(info);
                 const id = info.children[0].innerText;
                 const deleteFetch = fetch(`https://memin.io/public/api/users/${id}`, {
                     method: "DELETE"
@@ -173,6 +175,15 @@ submitModal.addEventListener("click", (e) => {
 })
 
 
-search.addEventListener("change", () => {
+search.addEventListener("keyup", () => {
     console.log(search.value);
+    for (tr of tbody.childNodes) {
+        const name = (tr.children[1].textContent);
+        if (name.includes(search.value)) {
+            console.log(tr);
+            tr.style = "display: block;";
+        } else {
+            tr.style = "display: none;"
+        }
+    }
 })
