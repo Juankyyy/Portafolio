@@ -187,12 +187,28 @@ submitModal.addEventListener("click", (e) => {
 
 
 search.addEventListener("keyup", () => {
-    for (tr of tbody.childNodes) {
-        const name = tr.children[1].textContent.toLowerCase();
-        if (name.includes(search.value.toLowerCase())) {
-            tr.style = "display: table-row;"
-        } else {
-            tr.style = "display: none;"
+    const idSearch = parseInt(search.value);
+    if (Number.isInteger(idSearch)) {
+        for (tr of tbody.childNodes) {
+            const id = tr.children[0].textContent;
+            if (id.includes(search.value)) {
+                tr.style = "display: table-row;"
+            } else {
+                tr.style = "display: none;"
+            }
         }
+        search.className = "form-control mt-3 fw-bold id"
+        console.log("num");
+    } else {
+        for (tr of tbody.childNodes) {
+            const name = tr.children[1].textContent.toLowerCase();
+            if (name.includes(search.value.toLowerCase())) {
+                tr.style = "display: table-row;"
+            } else {
+                tr.style = "display: none;"
+            }
+        }
+        search.className = "form-control mt-3 fw-bold name"
+        console.log("NO num");
     }
 })

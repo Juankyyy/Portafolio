@@ -22,13 +22,13 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="mt-2 form-floating">
-                            <input type="text" class="form-control" id="name" placeholder=".">
-                            <label for="floatingInput">Nombre</label>
+                            <input type="text" class="form-control fw-bold" id="name" placeholder=".">
+                            <label for="floatingInput" class="fw-bold">Nombre</label>
                         </div>
 
                         <div class="mt-3 form-floating">
-                            <input type="text" class="form-control" id="email" placeholder=".">
-                            <label for="floatingInput">Email</label>
+                            <input type="text" class="form-control fw-bold" id="email" placeholder=".">
+                            <label for="floatingInput" class="fw-bold">Email</label>
                         </div>
 
                         <button class="btn btn-success w-100 mt-3" id="submit">Actualizar</button>
@@ -37,7 +37,7 @@
                 <div class="btns">
                     <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modalNew">Crear nuevo
                         usuario</button>
-                    <input type="text" class="form-control mt-3" id="search" placeholder="Buscar">
+                    <input type="text" class="form-control mt-3 fw-bold" id="search" placeholder="Buscar">
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">Información del usuario</h1>
+                    <h1 class="modal-title fs-5 fw-bold">Información del usuario</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modalText">
@@ -79,22 +79,22 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">Crear Nuevo Usuario</h1>
+                    <h1 class="modal-title fs-5 fw-bold">Crear Nuevo Usuario</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modalInputs">
                     <form class="ms-5 me-5">
                         <div class="mb-3">
                             <label for="nameModal" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nameModal">
+                            <input type="text" class="form-control fw-bold" id="nameModal">
                         </div>
                         <div class="mb-3">
                             <label for="emailModal" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailModal">
+                            <input type="email" class="form-control fw-bold" id="emailModal">
                         </div>
                         <div class="mb-3">
                             <label for="passwordModal" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="passwordModal">
+                            <input type="password" class="form-control fw-bold" id="passwordModal">
                         </div>
                         <button type="submit" class="btn btn-success w-100" id="submitModal">Crear</button> <!-- data-bs-dismiss="modal" -->
                     </form>
