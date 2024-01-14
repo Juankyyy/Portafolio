@@ -116,6 +116,25 @@ td a {
     width: 90%;
 }
 
+.footerContent {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 10px;
+}
+
+.footer {
+    font-weight: bold;
+    font-size: 15px;
+    color: #afa89b;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.footer:hover {
+    color: #7282ff;
+}
+
 @media (max-width: 770px) {
     .table-responsive {
         height: 52dvh;
@@ -125,7 +144,17 @@ td a {
     .modal-dialog {
         width: 90dvw;
     }
+
     .modal-dialog .modal-body {
         overflow: auto;
+    }
+
+    .footerContent {
+        bottom: unset;
+        left: unset;
+        top: 0px;
+        right: 0px;
+        padding-right: 15px;
+        padding-top: 1px;
     }
 }
