@@ -125,7 +125,9 @@ input {
 }
 
 .id {
-    background-color: #00e1ff !important;
+    background-color: #632aff !important;
+    color: #fff !important;
+    border: none !important;
 }
 
 .footerContent {
