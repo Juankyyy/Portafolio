@@ -7,12 +7,12 @@
 
 ::-webkit-scrollbar-track {
     background-color: #444;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #0dcaf0;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -46,16 +46,16 @@ td a {
 input {
     transition: all 0.3s;
 }
+
 .card {
     background-color: #333;
 }
 
 .table-responsive {
-    height: 95dvh;
+    height: 93dvh;
     position: relative;
     overflow-x: hidden;
 }
-
 
 .editar {
     background-color: #328dc9;
@@ -115,7 +115,6 @@ input {
     justify-content: center;
 }
 
-.btns button,
 .btns input {
     width: 90%;
 }
@@ -126,15 +125,13 @@ input {
 }
 
 .id {
-    background-color: #333 !important;
-    color: #fff !important;
+    background-color: #00e1ff !important;
 }
 
 .footerContent {
     position: fixed;
-    bottom: 0px;
-    left: 0px;
-    padding: 10px;
+    bottom: 10px;
+    left: 10px;
 }
 
 .footer {
@@ -163,12 +160,20 @@ input {
         overflow: auto;
     }
 
+    .container-fluid {
+        margin-top: .5rem !important;
+    }
+
+    .card-body {
+        padding: 10px 16px;
+        padding-top: 8px;
+    }
+
     .footerContent {
+        position: absolute;
         bottom: unset;
         left: unset;
-        top: 0px;
-        right: 0px;
-        padding-right: 15px;
-        padding-top: 1px;
+        top: 4px;
+        right: 20px;
     }
 }

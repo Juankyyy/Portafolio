@@ -1,8 +1,12 @@
+const body = document.querySelector("body")
 const tbody = document.querySelector("tbody");
 
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const submit = document.querySelector("#submit");
+
+const modalNew = document.querySelector("#modalNew")
+const CrossModalNew = document.querySelector(".btn-close")
 
 const submitModal = document.querySelector("#submitModal");
 const inputNameModal = document.querySelector('#nameModal');
@@ -40,6 +44,8 @@ const resultado = fetch("https://memin.io/public/api/users")
             // -- Editar --
             const editar = document.createElement("a");
             editar.setAttribute("href", "#");
+            editar.setAttribute("data-bs-toggle", "modal");
+            editar.setAttribute("data-bs-target", "#modalNew");
             editar.classList.add("editar")
             editar.innerText = 'Editar';
             acciones.appendChild(editar);
@@ -48,13 +54,10 @@ const resultado = fetch("https://memin.io/public/api/users")
                 const info = (editar.parentElement).parentElement;
                 const id = info.children[0].innerText;
                 sessionStorage.setItem("id", id);
+                inputName.value = info.children[1].innerText;
+                inputEmail.value = info.children[2].innerText;
 
-                const name = info.children[1].innerText;
-                const email = info.children[2].innerText;
-
-                inputName.value = name;
-                inputEmail.value = email;
-                actualizarLocal(editar)
+                // actualizarLocal(editar);
             })
 
             // -- Detalles --
@@ -106,25 +109,24 @@ const resultado = fetch("https://memin.io/public/api/users")
         loading.parentNode.removeChild(loading);
     });
 
-function actualizarLocal(elemento) {
-    const id = sessionStorage.getItem('id');
-    const info = (elemento.parentElement).parentElement
+// ¿¿¿ Funcion para respuesta visual cuando se actualiza ???
+// function actualizarLocal(elemento) {
+//     const info = (elemento.parentElement).parentElement;
 
-    submit.addEventListener("click", () => {
-        if (inputName.value != "" && inputEmail.value != "") {    
-            if (id) {
-                info.children[1].innerText = inputName.value;
-                info.children[2].innerText = inputEmail.value;
-                inputName.value = "";
-                inputEmail.value = "";
-                sessionStorage.clear();
-            }
-        }
-    })
-}
+//     submit.addEventListener("click", () => {
+//         if (inputName.value != "" && inputEmail.value != "") {
+//             info.children[1].innerText = inputName.value;
+//             info.children[2].innerText = inputEmail.value;
+//             inputName.value = "";
+//             inputEmail.value = "";
+//             sessionStorage.clear();
+//         }
+//     })
+// }
 
 submit.addEventListener("click", () => {
     const id = sessionStorage.getItem('id');
+    // const modalNewBS = new bootstrap.Modal(modalNew);
 
     let datos = {
         id: parseInt(id),
@@ -133,22 +135,44 @@ submit.addEventListener("click", () => {
     };
 
     if (inputName.value != "" && inputEmail.value != "") {
-        if (id) {
-            let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
-                method: "PUT",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(datos)
-            })
-                .then(
-                    alert(`El id ${id} se ha actualizado correctamente`),
-                );
-        } else {
-            alert(`El usuario que intentas editar no existe, intenta crearlo`);
-        }
+        let sendUpdateFetch = fetch(`https://memin.io/public/api/users/${id}`, {
+            method: "PUT",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(datos)
+        })
+            .then(
+                alert(`El id ${id} se ha actualizado correctamente`),
+                location.reload(),
+
+                // ¿¿¿ Cerrar modalNew ???
+                // modalNewBS.hide(),
+                // modalNew.classList.remove("show"),
+                // modalNew.style = "display: none;",
+                // modalNew.removeAttribute("aria-modal"),
+                // modalNew.removeAttribute("role"),
+                // modalNew.setAttribute("aria-hidden", "true"),
+                // document.querySelector(".modal-backdrop").parentNode.removeChild(document.querySelector(".modal-backdrop")),
+                // body.className = "",
+                // body.style = ""
+            );
     } else {
         alert("Completa todos los inputs");
     };
 });
+
+function closeCroos() {
+    const modalNewBS = new bootstrap.Modal(modalNew);
+
+    modalNewBS.hide()
+    modalNew.classList.remove("show");
+    modalNew.style = "display: none;";
+    modalNew.removeAttribute("aria-modal");
+    modalNew.removeAttribute("role");
+    modalNew.setAttribute("aria-hidden", "true");
+    document.querySelector(".modal-backdrop").parentNode.removeChild(document.querySelector(".modal-backdrop"));
+    body.className = "";
+    body.style = "";
+}
 
 closeModal.addEventListener("click", () => {
     const body = document.querySelector("#modalText");
@@ -176,15 +200,15 @@ submitModal.addEventListener("click", (e) => {
         })
             .then(
                 alert(`El usuario ${inputNameModal.value} se creó correctamente`),
-                inputNameModal.value = "",
-                inputEmailModal.value = "",
-                inputPasswordModal.value = ""
+                location.reload(),
+                // inputNameModal.value = "",
+                // inputEmailModal.value = "",
+                // inputPasswordModal.value = ""
             );
     } else {
         alert("Completa todos los inputs");
     }
 })
-
 
 search.addEventListener("keyup", () => {
     const idSearch = parseInt(search.value);
@@ -197,8 +221,7 @@ search.addEventListener("keyup", () => {
                 tr.style = "display: none;"
             }
         }
-        search.className = "form-control mt-3 fw-bold id"
-        console.log("num");
+        search.className = "form-control mt-3 fw-bold id";
     } else {
         for (tr of tbody.childNodes) {
             const name = tr.children[1].textContent.toLowerCase();
@@ -208,7 +231,6 @@ search.addEventListener("keyup", () => {
                 tr.style = "display: none;"
             }
         }
-        search.className = "form-control mt-3 fw-bold name"
-        console.log("NO num");
+        search.className = "form-control mt-3 fw-bold name";
     }
 })
