@@ -215,6 +215,10 @@ h3 {
     .cards-text {
         font-size: 13px;
     }
+
+    .cards-text-ahorcadito {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 350px) {
@@ -227,7 +231,6 @@ h3 {
     }
 
     .projects {
-        /* gap: 20px; */
         gap: 0px;
     }
 }
