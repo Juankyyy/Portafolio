@@ -36,6 +36,10 @@ h3 {
     display: none !important;
 }
 
+#particles-js canvas {
+    position: absolute;
+}
+
 .background {
     background-image: url(./assets/backgroundHD.jpeg);
     background-position: center;
@@ -43,6 +47,8 @@ h3 {
     background-size: cover;
     height: 100dvh;
     color: #fff;
+    z-index: 0;
+    position: relative;
 
     display: grid;
     place-content: center;
@@ -69,6 +75,7 @@ h3 {
 .content {
     letter-spacing: 1px;
     align-self: end;
+    z-index: 1;
 }
 
 #proyectos {
