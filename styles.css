@@ -212,12 +212,8 @@ h3 {
         height: 50px;
     }
 
-    .cards-text {
+    .cards-text h2 {
         font-size: 13px;
-    }
-
-    .cards-text-ahorcadito {
-        font-size: 12px;
     }
 }
 
